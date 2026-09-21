@@ -50,7 +50,7 @@ if (revealTargets?.length) {
   }
 }
 
-const galleryImages = document.querySelectorAll('.project-gallery img');
+const galleryImages = document.querySelectorAll('.project-hero img, .project-gallery img');
 
 if (galleryImages.length) {
   const lightbox = document.createElement('div');
