@@ -20,6 +20,35 @@ if (navToggle && siteNav) {
   });
 }
 
+const homepage = document.querySelector('main#top');
+const revealTargets = homepage?.querySelectorAll(
+  '.hero-copy, .logo-strip, .section-heading, .project-card, .section-cta-row, .service-card, .timeline-item, .about-copy, .cv-card, .contact-box'
+);
+
+if (revealTargets?.length) {
+  document.body.classList.add('reveal-ready');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealTargets.forEach((target) => target.classList.add('scroll-reveal', 'is-visible'));
+  } else {
+    revealTargets.forEach((target, index) => {
+      target.classList.add('scroll-reveal');
+      target.style.transitionDelay = `${Math.min(index % 3, 2) * 90}ms`;
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      },
+      { threshold: 0.14, rootMargin: '0px 0px -6% 0px' }
+    );
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+}
+
 const galleryImages = document.querySelectorAll('.project-gallery img');
 
 if (galleryImages.length) {

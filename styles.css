@@ -53,6 +53,34 @@ button {
   margin: 0 auto;
 }
 
+.scroll-reveal {
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+body.reveal-ready .scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+body.reveal-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-reveal,
+  body.reveal-ready .scroll-reveal,
+  body.reveal-ready .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .site-header {
   position: sticky;
   top: 0;
