@@ -741,7 +741,8 @@ h3 {
 
 .project-gallery img {
   width: 100%;
-  height: 260px;
+  height: 350px;
+  /*height was 260px*/
   object-fit: cover;
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
