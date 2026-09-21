@@ -21,8 +21,9 @@ if (navToggle && siteNav) {
 }
 
 const homepage = document.querySelector('main#top');
-const revealTargets = homepage?.querySelectorAll(
-  '.hero-copy, .logo-strip, .section-heading, .project-card, .section-cta-row, .service-card, .timeline-item, .about-copy, .cv-card, .contact-box'
+const workPage = document.querySelector('main#work-page');
+const revealTargets = (homepage || workPage)?.querySelectorAll(
+  '.hero-copy, .logo-strip, .section-heading, .page-header, .case-study-grid, .project-card, .section-cta-row, .service-card, .timeline-item, .about-copy, .cv-card, .contact-box'
 );
 
 if (revealTargets?.length) {
